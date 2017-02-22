@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sandboxApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body ng-controller="catsController">
+<div ng-show="addCats">
+<h1>Lisa kass</h1>
+    <h2><span>Lisa kasse</span> <a href="#" ng-click="showList()">Näita kasse</a></h2>
+<form novalidate ng-submit="add()">
+    <input type="text" placeholder="kiisu nimi" ng-model="new.name">
+    <input type="text" placeholder="kiisu sünniaasta" ng-model="new.dateOfBirth">
+    <input type="submit" value="lisa">
+</form>
+</div>
+
+
+<div ng-show="listCats">
+    <h1>Nimekiri</h1>
+    <h2><a href="#" ng-click="showAdd()">Lisa kasse</a> <span>Näita kasse</span></h2>
+    <br>
+    <span>filter: </span><input placeholder="kiisu omadus" type="text" ng-model="filterString">
+    <ul>
+        <li ng-repeat="animal in animals | filter:filterString">
+            <b>nimi</b>: {{animal.name}} &emsp;<b>sünniaasta</b>: {{animal.dateOfBirth}}
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>
